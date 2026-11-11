@@ -104,6 +104,12 @@ section{padding-block:84px}
 .feat li::before{content:"";width:12px;height:12px;margin-top:7px;background:var(--accent);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
 .game .btn{justify-self:start;border-color:var(--accent);color:var(--steel)}
 .game .btn:hover{background:color-mix(in srgb,var(--accent) 18%,transparent)}
+.g-cephe .story{color:var(--steel)}
+@media (min-width:861px){.g-cephe{grid-template-columns:1fr 1.15fr}}
+.feat-grid{grid-template-columns:1fr 1fr;gap:12px 22px}
+.feat-grid li{font-size:.95rem;line-height:1.5;color:var(--steel-dim)}
+.feat-grid b{color:var(--steel);font-weight:600}
+@media (max-width:1100px){.feat-grid{grid-template-columns:1fr}}
 .g-cephe{--accent:var(--allied);--glow:var(--allied);--art-bg:#081420}
 .g-hexa{--accent:var(--n2);--glow:var(--n2);--art-bg:#120f0b}
 .g-hexa .art{order:2}
@@ -267,12 +273,16 @@ footer .brand span{color:var(--steel)}
           </div>
           <div class="info">
             <div class="chips"><span class="chip status"><span data-l="en">Closed beta</span><span data-l="tr">Kapalı beta</span></span><span class="chip">Android</span><span class="chip">iOS · <span data-l="en">later</span><span data-l="tr">yakında</span></span><span class="chip">6 <span data-l="en">languages</span><span data-l="tr">dil</span></span></div>
-            <p><span data-l="en">Command the blue forces across a 50-mission world campaign. Take factories and radar stations, push your tanks forward and bring down the enemy HQ before it brings down yours.</span><span data-l="tr">Mavi kuvvetleri 50 görevlik bir dünya seferinde yönet. Fabrikaları ve radar istasyonlarını ele geçir, tanklarını ileri sür ve düşman karargâhını, o seninkini yıkmadan önce yık.</span></p>
-            <ul class="feat">
-              <li><span data-l="en">50 missions that unlock one by one on the world map</span><span data-l="tr">Dünya haritasında sırayla açılan 50 görev</span></li>
-              <li><span data-l="en">Three tank classes, each upgradable in three stages</span><span data-l="tr">Üç tank sınıfı, her biri üç kademe geliştirilebilir</span></li>
-              <li><span data-l="en">Capture radars to call in your own air force</span><span data-l="tr">Radarları ele geçir, kendi hava kuvvetini çağır</span></li>
-              <li><span data-l="en">Place defenses to hold the line</span><span data-l="tr">Hattı tutmak için savunma kur</span></li>
+            <p class="story"><span data-l="en">The world is at war, and the front line runs through every continent. As commander of the blue forces, you lead a campaign of 50 missions across the world map, from desert plains to frozen passes. Every battle is a race: seize factories and radar stations, build up your armor and strike the enemy headquarters before the green army overruns yours.</span><span data-l="tr">Dünya savaşta ve cephe hattı her kıtadan geçiyor. Mavi kuvvetlerin komutanı olarak çöl ovalarından donmuş geçitlere uzanan 50 görevlik bir dünya seferini yönetiyorsun. Her savaş bir yarış: Fabrikaları ve radar istasyonlarını ele geçir, zırhlı gücünü büyüt ve yeşil ordu seninkini ezmeden önce düşman karargâhını vur.</span></p>
+            <ul class="feat feat-grid">
+              <li><span data-l="en"><b>50-mission campaign.</b> Missions unlock one by one on the world map, each harder than the last.</span><span data-l="tr"><b>50 görevlik sefer.</b> Görevler dünya haritasında sırayla açılıyor, her biri bir öncekinden zorlu.</span></li>
+              <li><span data-l="en"><b>Capture to win.</b> Every factory you hold speeds up your tank production. Lose them and the war turns.</span><span data-l="tr"><b>Ele geçir, kazan.</b> Elindeki her fabrika tank üretimini hızlandırır. Kaybedersen savaşın gidişatı değişir.</span></li>
+              <li><span data-l="en"><b>Three tank classes.</b> Main battle tanks, anti-air and long-range mortars, each upgradable in three stages.</span><span data-l="tr"><b>Üç tank sınıfı.</b> Ana muharebe tankı, hava savunma ve uzun menzilli havan; her biri üç kademe geliştirilebilir.</span></li>
+              <li><span data-l="en"><b>Air power from radar.</b> Each radar station you capture sends its own aircraft into the fight.</span><span data-l="tr"><b>Radardan hava gücü.</b> Ele geçirdiğin her radar istasyonu savaşa kendi uçağını gönderir.</span></li>
+              <li><span data-l="en"><b>Drone strikes.</b> Hit enemy tanks and defenses from the sky before your armor moves in.</span><span data-l="tr"><b>Drone saldırıları.</b> Zırhlı birliklerin ilerlemeden önce düşman tanklarını ve savunmalarını havadan vur.</span></li>
+              <li><span data-l="en"><b>Build your defenses.</b> Place guns and heavy machine guns around your base to hold the line.</span><span data-l="tr"><b>Savunmanı kur.</b> Hattı tutmak için üssünün çevresine top ve ağır makineli tüfekler yerleştir.</span></li>
+              <li><span data-l="en"><b>Endless Defense mode.</b> Survive wave after wave and see how long you can hold.</span><span data-l="tr"><b>Sonsuz Savunma modu.</b> Dalga dalga gelen saldırılara karşı ne kadar dayanabileceğini gör.</span></li>
+              <li><span data-l="en"><b>Play in 6 languages.</b> Fully localized, including English and Turkish.</span><span data-l="tr"><b>6 dilde oyna.</b> İngilizce ve Türkçe dahil tamamen yerelleştirildi.</span></li>
             </ul>
             <a class="btn" href="#news"><span data-l="en">Closed beta live on Google Play</span><span data-l="tr">Kapalı beta Google Play'de yayında</span></a>
           </div>
@@ -300,8 +310,8 @@ footer .brand span{color:var(--steel)}
 
         <article class="game g-x">
           <div class="info">
-            <span class="chip status"><span data-l="en">Classified</span><span data-l="tr">Gizli</span></span>
-            <div class="redact">Project 03: <span data-l="en">the towers are rising.</span><span data-l="tr">kuleler yükseliyor.</span> <span class="bar">XXXXXXX</span> <span data-l="en">Will the line hold?</span><span data-l="tr">Hat dayanacak mı?</span></div>
+            <div class="chips"><span class="chip status"><span data-l="en">Classified</span><span data-l="tr">Gizli</span></span><span class="chip">PC · Steam</span></div>
+            <div class="redact">Project 03: <span data-l="en">your stall.</span><span data-l="tr">tezgâhın senin.</span> <span data-l="en">Your voice.</span><span data-l="tr">Sesin senin.</span> <span class="bar">XXXXXXXX</span> <span data-l="en">Coming to Steam.</span><span data-l="tr">Yakında Steam'de.</span></div>
           </div>
         </article>
 
