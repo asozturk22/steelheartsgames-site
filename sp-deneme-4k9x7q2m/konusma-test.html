@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semt Pazarı - Konuşma Tanıma Testi</title>
+<style>
+  body { font-family: -apple-system, sans-serif; background: #2b1d14; color: #fff3dc; margin: 0; padding: 18px; }
+  h1 { font-size: 22px; color: #ffd34d; margin: 0 0 6px; }
+  p { margin: 6px 0 14px; line-height: 1.4; }
+  button { display: block; width: 100%; font-size: 19px; padding: 16px; margin: 10px 0; border: 0; border-radius: 12px;
+           background: #f6a623; color: #2b1d14; font-weight: 700; }
+  button.ikinci { background: #ffd34d; }
+  button.dur { background: #c94b3b; color: #fff; }
+  #durum { font-size: 18px; font-weight: 700; color: #8fe08a; margin: 10px 0; }
+  #cumle { font-size: 24px; min-height: 34px; color: #fff; background: #3d2b1e; border-radius: 10px; padding: 10px; }
+  #kayit { font-family: ui-monospace, monospace; font-size: 13px; white-space: pre-wrap; background: #1a110b;
+           border-radius: 10px; padding: 10px; margin-top: 12px; max-height: 45vh; overflow: auto; }
+</style>
+</head>
+<body>
+<h1>Konuşma Tanıma Testi</h1>
+<p>1. düğmeye bas, izin ver, sonra "Taze domates, teyze gel gel!" de. Çalışırsa 2. düğmeyi dene. En alttaki kaydın ekran görüntüsünü gönder.</p>
+<button onclick="test(false)">1. Sadece konuşma tanıma</button>
+<button class="ikinci" onclick="test(true)">2. Mikrofon ölçümü + konuşma tanıma (oyundaki gibi)</button>
+<button class="dur" onclick="durdur()">Durdur</button>
+<div id="durum">Hazır</div>
+<div id="cumle"></div>
+<div id="kayit"></div>
+<script>
+var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+var r = null, akis = null, ctx = null;
+function yaz(m) { var k = document.getElementById('kayit'); k.textContent = new Date().toLocaleTimeString() + '  ' + m + '\n' + k.textContent; }
+function durum(m) { document.getElementById('durum').textContent = m; }
+yaz('Tarayıcı: ' + navigator.userAgent);
+yaz('SpeechRecognition var mı: ' + (window.SpeechRecognition ? 'evet' : 'hayır') + ', webkitSpeechRecognition var mı: ' + (window.webkitSpeechRecognition ? 'evet' : 'hayır'));
+function durdur() {
+  try { if (r) r.stop(); } catch (e) {}
+  if (akis) { akis.getTracks().forEach(function (t) { t.stop(); }); akis = null; }
+  durum('Durduruldu');
+}
+async function test(mikrofonla) {
+  durdur();
+  if (!SR) { durum('Bu tarayıcıda konuşma tanıma YOK'); yaz('HATA: SpeechRecognition yok'); return; }
+  if (mikrofonla) {
+    try {
+      akis = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } });
+      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+      await ctx.resume();
+      var kaynak = ctx.createMediaStreamSource(akis);
+      var olcer = ctx.createAnalyser();
+      kaynak.connect(olcer);
+      yaz('Mikrofon ölçümü açık (oyundaki gibi)');
+    } catch (e) { yaz('Mikrofon hatası: ' + e); }
+  }
+  r = new SR();
+  r.lang = 'tr-TR';
+  r.continuous = false;
+  r.interimResults = true;
+  r.onstart = function () { durum('Dinliyor... konuş'); yaz('start'); };
+  r.onaudiostart = function () { yaz('ses alınıyor (audiostart)'); };
+  r.onspeechstart = function () { yaz('konuşma algılandı (speechstart)'); };
+  r.onresult = function (e) {
+    var metin = '';
+    for (var i = 0; i < e.results.length; i++) metin += e.results[i][0].transcript;
+    document.getElementById('cumle').textContent = metin;
+    if (e.results[e.results.length - 1].isFinal) yaz('SONUÇ: ' + metin);
+  };
+  r.onerror = function (e) { durum('Hata: ' + e.error); yaz('HATA: ' + e.error + (e.message ? ' (' + e.message + ')' : '')); };
+  r.onend = function () { yaz('end'); if (document.getElementById('durum').textContent.indexOf('Hata') < 0) durum('Bitti (tekrar basabilirsin)'); };
+  try { r.start(); yaz('start() çağrıldı'); } catch (e) { durum('Başlatılamadı'); yaz('start() HATASI: ' + e); }
+}
+</script>
+</body>
+</html>
