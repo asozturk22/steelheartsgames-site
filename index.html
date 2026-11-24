@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.play-btn svg{width:20px;height:20px;flex:none}
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.play-btn .gp-ic{width:30px;height:30px;border-radius:7px;background:#fff;display:grid;place-items:center;flex:none;margin-left:-8px}.play-btn .gp-ic svg{width:18px;height:18px}
 .game.g-cephe .btn.play-btn{background:var(--allied);border-color:var(--allied);color:#fff}
 .game.g-cephe .btn.play-btn:hover{background:#5a9dff;border-color:#5a9dff}
 .launch{display:grid;grid-template-columns:repeat(2,minmax(0,370px));gap:14px;justify-content:center;margin:6px 0 22px;animation:rise 1.1s .3s cubic-bezier(.2,.7,.2,1) both}
@@ -9,7 +9,8 @@
 .lc-so{border-color:color-mix(in srgb,var(--ember) 55%,var(--line));box-shadow:0 0 0 1px color-mix(in srgb,var(--ember) 22%,transparent),0 10px 30px -14px var(--ember)}
 .lc-so:hover{border-color:var(--ember);box-shadow:0 0 0 1px var(--ember),0 14px 38px -12px var(--ember)}
 .lc-ic{width:56px;height:56px;border-radius:12px;display:grid;place-items:center;color:#fff}
-.lc-play .lc-ic{background:var(--allied)}
+.lc-play .lc-ic{background:#fff}
+.lc-play .lc-ic svg{width:32px;height:32px}
 .lc-so .lc-ic{background:var(--ember);color:#1a0d05}
 .lc-ic svg{width:28px;height:28px}
 .lc-tx{display:grid;gap:1px;min-width:0}
@@ -273,7 +274,7 @@ footer .brand span{color:var(--steel)}
       <p><span data-l="en">An independent studio from Türkiye building real-time war strategy games for mobile and PC.</span><span data-l="tr">Mobil ve PC için gerçek zamanlı savaş stratejisi oyunları geliştiren, Türkiye'den bağımsız bir stüdyo.</span></p>
       <div class="launch">
         <a class="launch-card lc-play" href="https://play.google.com/store/apps/details?id=com.steelheartsgames.cephehatti" target="_blank" rel="noopener">
-          <span class="lc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.2 2.3a1.3 1.3 0 0 0-.5 1.1v17.2c0 .5.2.9.5 1.1L13.9 12zM15.1 13.2l-2.1 2.1-6.9 6.8 10.1-5.8zM15.1 10.8 6.1 1.9l6.9 6.8zM20.3 10.9l-3.4-2-2.6 3.1 2.6 3.1 3.4-2c.8-.5.8-1.7 0-2.2z"/></svg></span>
+          <span class="lc-ic"><svg viewBox="168 105 448 498" aria-hidden="true"><defs><clipPath id="gp-clip"><path d="M173 165C173 120 215 100 255 120L578 305C615 326 615 384 578 405L255 590C215 610 173 590 173 545Z"/></clipPath></defs><g clip-path="url(#gp-clip)"><path fill="#4285F4" d="M60 42 375 355 60 668Z"/><path fill="#34A853" d="M60 0H690V35L375 355 60 42Z"/><path fill="#FBBC04" d="M375 355 690 35V675Z"/><path fill="#EA4335" d="M60 668 375 355 690 675V700H60Z"/></g></svg></span>
           <span class="lc-tx"><span class="lc-k"><i aria-hidden="true"></i><span data-l="en">Out now</span><span data-l="tr">Yayında</span></span><b>Cephe Hattı</b><span class="lc-s"><span data-l="en">Get it on Google Play</span><span data-l="tr">Google Play'den indir</span></span></span>
           <span class="lc-go" aria-hidden="true">→</span>
         </a>
@@ -321,7 +322,7 @@ footer .brand span{color:var(--steel)}
               <li><span data-l="en"><b>Endless Defense mode.</b> Survive wave after wave and see how long you can hold.</span><span data-l="tr"><b>Sonsuz Savunma modu.</b> Dalga dalga gelen saldırılara karşı ne kadar dayanabileceğini gör.</span></li>
               <li><span data-l="en"><b>Play in 6 languages.</b> Fully localized, including English and Turkish.</span><span data-l="tr"><b>6 dilde oyna.</b> İngilizce ve Türkçe dahil tamamen yerelleştirildi.</span></li>
             </ul>
-            <a class="btn solid play-btn" href="https://play.google.com/store/apps/details?id=com.steelheartsgames.cephehatti" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.2 2.3a1.3 1.3 0 0 0-.5 1.1v17.2c0 .5.2.9.5 1.1L13.9 12zM15.1 13.2l-2.1 2.1-6.9 6.8 10.1-5.8zM15.1 10.8 6.1 1.9l6.9 6.8zM20.3 10.9l-3.4-2-2.6 3.1 2.6 3.1 3.4-2c.8-.5.8-1.7 0-2.2z"/></svg><span data-l="en">Get it on Google Play</span><span data-l="tr">Google Play'den indir</span></a>
+            <a class="btn solid play-btn" href="https://play.google.com/store/apps/details?id=com.steelheartsgames.cephehatti" target="_blank" rel="noopener"><span class="gp-ic"><svg viewBox="168 105 448 498" aria-hidden="true"><defs><clipPath id="gp-clip2"><path d="M173 165C173 120 215 100 255 120L578 305C615 326 615 384 578 405L255 590C215 610 173 590 173 545Z"/></clipPath></defs><g clip-path="url(#gp-clip2)"><path fill="#4285F4" d="M60 42 375 355 60 668Z"/><path fill="#34A853" d="M60 0H690V35L375 355 60 42Z"/><path fill="#FBBC04" d="M375 355 690 35V675Z"/><path fill="#EA4335" d="M60 668 375 355 690 675V700H60Z"/></g></svg></span><span data-l="en">Get it on Google Play</span><span data-l="tr">Google Play'den indir</span></a>
           </div>
         </article>
 
